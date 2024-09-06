@@ -480,3 +480,4 @@ D:\dotnet\cpu_monitor\obj\Release\net8.0-windows\win-x64\refint\cpu_monitor.dll
 D:\dotnet\cpu_monitor\obj\Release\net8.0-windows\win-x64\cpu_monitor.pdb
 D:\dotnet\cpu_monitor\obj\Release\net8.0-windows\win-x64\cpu_monitor.genruntimeconfig.cache
 D:\dotnet\cpu_monitor\obj\Release\net8.0-windows\win-x64\ref\cpu_monitor.dll
+D:\dotnet\cpu_monitor\obj\Release\net8.0-windows\win-x64\cpu_monitor.sourcelink.json

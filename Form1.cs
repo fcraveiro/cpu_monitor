@@ -1,5 +1,6 @@
 using LibreHardwareMonitor.Hardware;
 using System;
+using System.Text;
 using System.Windows.Forms;
 
 public partial class Form1 : Form
@@ -14,7 +15,9 @@ public partial class Form1 : Form
         _computer = new Computer
         {
             IsCpuEnabled = true,
-            IsMotherboardEnabled = true // Habilitar monitoramento da placa-mãe
+            IsMotherboardEnabled = true,
+            IsGpuEnabled = true, // Habilitar monitoramento de GPU (se necessário)
+            IsStorageEnabled = true // Habilitar monitoramento de armazenamento
         };
         _computer.Open();
 
@@ -37,11 +40,18 @@ public partial class Form1 : Form
         string cpuTemperature = "Desconhecida";
         string cpuUsage = "Desconhecido";
         string motherboardInfo = "Desconhecida";
+        string processorInfo = "Desconhecido";
+        string storageInfo = "Desconhecido";
+        
+        bool storageFound = false;
+        StringBuilder sb = new StringBuilder();
 
         foreach (var hardware in _computer.Hardware)
         {
             if (hardware.HardwareType == HardwareType.Cpu)
             {
+                processorInfo = hardware.Name; // Nome do processador
+
                 foreach (var sensor in hardware.Sensors)
                 {
                     if (sensor.SensorType == SensorType.Temperature)
@@ -58,10 +68,40 @@ public partial class Form1 : Form
             {
                 motherboardInfo = hardware.Name; // Nome da placa-mãe
             }
+            else if (hardware.HardwareType == HardwareType.Storage)
+            {
+                storageFound = true;
+                sb.AppendLine("Armazenamento: " + hardware.Name);
+                foreach (var sensor in hardware.Sensors)
+                {
+                    if (sensor.SensorType == SensorType.Data)
+                    {
+                        string name = sensor.Name;
+                        if (name.Contains("Used"))
+                        {
+                            sb.AppendLine("Espaço Usado: " + FormatValue(sensor.Value) + " GB");
+                        }
+                        else if (name.Contains("Available"))
+                        {
+                            sb.AppendLine("Espaço Disponível: " + FormatValue(sensor.Value) + " GB");
+                        }
+                    }
+                }
+            }
         }
 
-        label1.Text = $"Temperatura da CPU: {cpuTemperature}";
-        label2.Text = $"Uso da CPU: {cpuUsage}";
-        label3.Text = $"Placa Mãe: {motherboardInfo}";
+        storageInfo = storageFound ? sb.ToString() : "Nenhum armazenamento encontrado.";
+
+        // Atualiza os labels com as informações corretas
+        label1.Text = $"Placa Mãe: {motherboardInfo}";
+        label2.Text = $"Processador: {processorInfo}";
+        label3.Text = $"Temperatura da CPU: {cpuTemperature}";
+        label4.Text = $"Uso da CPU: {cpuUsage}";
+        label5.Text = $"Armazenamento: {storageInfo}";
+    }
+
+    private string FormatValue(double? value)
+    {
+        return value.HasValue ? $"{value.Value:F2}" : "Desconhecido";
     }
 }

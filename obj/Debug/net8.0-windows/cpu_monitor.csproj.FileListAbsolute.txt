@@ -38,6 +38,7 @@ D:\dotnet\cpu_monitor\obj\Debug\net8.0-windows\cpu_monitor.GeneratedMSBuildEdito
 D:\dotnet\cpu_monitor\obj\Debug\net8.0-windows\cpu_monitor.AssemblyInfoInputs.cache
 D:\dotnet\cpu_monitor\obj\Debug\net8.0-windows\cpu_monitor.AssemblyInfo.cs
 D:\dotnet\cpu_monitor\obj\Debug\net8.0-windows\cpu_monitor.csproj.CoreCompileInputs.cache
+D:\dotnet\cpu_monitor\obj\Debug\net8.0-windows\cpu_monitor.sourcelink.json
 D:\dotnet\cpu_monitor\obj\Debug\net8.0-windows\cpu_moni.BE65AF2C.Up2Date
 D:\dotnet\cpu_monitor\obj\Debug\net8.0-windows\cpu_monitor.dll
 D:\dotnet\cpu_monitor\obj\Debug\net8.0-windows\refint\cpu_monitor.dll
