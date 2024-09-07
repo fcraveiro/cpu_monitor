@@ -6,7 +6,9 @@ using System.Diagnostics;
 using System.IO;
 using System.Management;
 
+#pragma warning disable CA1050 // Declare types in namespaces
 public partial class Form1 : Form
+#pragma warning restore CA1050 // Declare types in namespaces
 {
     private readonly Computer _computer;
     private readonly System.Windows.Forms.Timer _timer;
@@ -27,7 +29,7 @@ public partial class Form1 : Form
 
         _timer = new System.Windows.Forms.Timer
         {
-            Interval = 1000
+            Interval = 10
         };
         _timer.Tick += Timer_Tick;
         _timer.Start();
@@ -155,7 +157,7 @@ private string GetStorageInfo()
             try
             {
                 ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_LogicalDisk WHERE DriveType=3");
-                foreach (ManagementObject disk in searcher.Get())
+                foreach (ManagementObject disk in searcher.Get().Cast<ManagementObject>())
                 {
                     string? driveLetter = disk["DeviceID"]?.ToString();
                     long freeSpace = Convert.ToInt64(disk["FreeSpace"]);
@@ -180,14 +182,14 @@ private string GetStorageInfo()
     return storageFound ? sb.ToString() : "Nenhum dispositivo de armazenamento encontrado.";
 }
 
-private string FormatBytes(long bytes)
+private static string FormatBytes(long bytes)
 {
-    string[] suffixes = { "B", "KB", "MB", "GB", "TB", "PB" };
+    string[] suffixes = ["B", "KB", "MB", "GB", "TB", "PB"];
     int counter = 0;
     decimal number = (decimal)bytes;
     while (Math.Round(number / 1024) >= 1)
     {
-        number = number / 1024;
+        number /= 1024;
         counter++;
     }
     return string.Format("{0:n1} {1}", number, suffixes[counter]);
