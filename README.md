@@ -47,10 +47,13 @@ Sem a ajuda dessa tecnologia avançada, a fluidez e a eficiência do projeto ter
 
 ## Tecnologias Utilizadas
 
-- **.NET Core**: Backend responsável pela coleta de dados de hardware e transmissão via WebSocket.
-- **LibreHardwareMonitor**: Biblioteca usada para coletar dados de hardware.
-- **WebSocketSharp**: Biblioteca usada para o transporte de dados via WebSocket.
-- **Flutter**: Utilizado para desenvolver a interface de usuário no aplicativo móvel.
+- ** ChatGPT-4: Assistente de inteligência artificial fundamental para ajudar no desenvolvimento e resolução de problemas ao longo do projeto.
+- ** Claude: IA utilizada para assistência em processamento de linguagem natural e suporte ao fluxo de trabalho.
+- ** GitHub Copilot: Assistente de codificação que ajudou a sugerir e acelerar a implementação de soluções no código.
+- ** .NET Core: Backend responsável pela coleta de dados de hardware e transmissão via WebSocket.
+- ** LibreHardwareMonitor: Biblioteca usada para coletar dados de hardware.
+- ** WebSocketSharp: Biblioteca usada para o transporte de dados via WebSocket.
+- ** Flutter: Utilizado para desenvolver a interface de usuário no aplicativo móvel.
 
 ## Versões Utilizadas
 
