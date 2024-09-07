@@ -1,6 +1,25 @@
-# <span style="color:blue">Aplicativo de Monitoramento de CPU</span>
+# <span style="color:blue">Monitoramento de CPU e Envio para APP</span>
 
 Este projeto tem como objetivo monitorar em tempo real o desempenho do hardware de um computador, como o uso de CPU, temperatura e outras métricas, e transmitir essas informações para um dispositivo móvel via WebSocket.
+
+## Atribuições
+
+O desenvolvimento deste projeto de monitoramento de CPU envolveu a utilização e colaboração de três IA generativas: **ChatGPT-4**, **Claude**, e **GitHub Copilot**, cada uma contribuindo em diferentes etapas do desenvolvimento.
+
+### **ChatGPT-4**
+- **Consultas Técnicas e Soluções de Código**: ChatGPT-4 foi utilizado para fornecer suporte técnico, como ajudar na implementação da comunicação WebSocket em C# e resolver problemas de integração com o `LibreHardwareMonitor`. Além disso, foi útil em esclarecer dúvidas sobre padrões de arquitetura de software.
+- **Documentação**: O conteúdo inicial da documentação do projeto foi escrito com a assistência do ChatGPT-4, que ajudou a estruturar e formatar as informações de forma clara e objetiva.
+  
+### **Claude**
+- **Organização de Fluxos de Trabalho**: Claude forneceu insights sobre a organização dos fluxos de trabalho do projeto, sugerindo estratégias de otimização de performance na coleta e transmissão dos dados de hardware.
+- **Revisão de Código e Melhorias**: Claude foi útil na revisão do código, propondo melhorias de performance e refatorações, além de colaborar na definição de boas práticas de codificação e manutenção do projeto.
+
+### **GitHub Copilot**
+- **Autocompletar e Sugestões de Código**: GitHub Copilot foi uma ferramenta indispensável durante o desenvolvimento, oferecendo sugestões de código em tempo real enquanto se escrevia o backend em C#. Suas sugestões foram especialmente úteis na criação das funções de monitoramento e no manuseio das bibliotecas `LibreHardwareMonitor` e `WebSocketSharp`.
+- **Integração com APIs**: GitHub Copilot também forneceu sugestões úteis na integração da API do `LibreHardwareMonitor` com o backend, automatizando grande parte do processo de manipulação dos dados de hardware.
+
+Graças à colaboração dessas três ferramentas de IA generativa, o projeto foi otimizado em termos de tempo, qualidade e eficiência de desenvolvimento.
+
 
 ## <span style="color:blue">Sumário</span>
 
