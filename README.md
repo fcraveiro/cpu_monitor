@@ -21,6 +21,10 @@ O desenvolvimento deste projeto de monitoramento de CPU em dotNet envolveu a uti
 Graças à colaboração dessas três ferramentas de IA generativa, o projeto foi otimizado em termos de tempo, qualidade e eficiência de desenvolvimento.
 
 Elogios criados pelo <span style="color:yellow">ChatGpt</span>
+<p style="background-color:yellow;">Atribuições: Este projeto foi realizado com o apoio de ChatGPT-4, Claude, e GitHub Copilot.</p>
+<p style="background-color:yellow;">Atribuições: Este projeto foi realizado com o apoio de ChatGPT-4, Claude, e GitHub Copilot.</p>
+
+Elogios criados pelo ChatGpt
 
 ## <span style="color:blue">Sumário</span>
 
