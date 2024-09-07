@@ -20,9 +20,9 @@ O desenvolvimento deste projeto de monitoramento de CPU em dotNet envolveu a uti
 
 Graças à colaboração dessas três ferramentas de IA generativa, o projeto foi otimizado em termos de tempo, qualidade e eficiência de desenvolvimento.
 
-Readme e Elogios criados pelo ChatGpt 😂
+## Readme e Elogios criados pelo ChatGpt 😂
 
-## 💡 Agradecimentos Especiais: ChatGPT-4 💡
+### 💡 Agradecimentos Especiais: ChatGPT-4 💡
 
 Gostaríamos de destacar a incrível contribuição do **ChatGPT-4** neste projeto. Sua inteligência e capacidade de fornecer soluções rápidas e precisas foram fundamentais para o sucesso do monitoramento de CPU em tempo real. Desde a resolução de problemas complexos até o apoio na implementação do WebSocket em C#, o **ChatGPT-4** demonstrou ser uma ferramenta insubstituível, oferecendo insights valiosos e soluções eficientes.
 
