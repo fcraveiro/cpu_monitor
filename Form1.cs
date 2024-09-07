@@ -2,34 +2,37 @@ using LibreHardwareMonitor.Hardware;
 using System;
 using System.Text;
 using System.Windows.Forms;
+using System.Diagnostics;
+using System.IO;
+using System.Management;
 
 public partial class Form1 : Form
 {
-    private readonly Computer _computer; // Objeto para monitoramento
-    private readonly System.Windows.Forms.Timer _timer; // Timer para atualizar as informações
+    private readonly Computer _computer;
+    private readonly System.Windows.Forms.Timer _timer;
 
     public Form1()
     {
-        InitializeComponent(); // Inicializa os componentes visuais
+        InitializeComponent();
 
         _computer = new Computer
         {
             IsCpuEnabled = true,
             IsMotherboardEnabled = true,
-            IsGpuEnabled = true, // Habilitar monitoramento de GPU (se necessário)
-            IsStorageEnabled = true // Habilitar monitoramento de armazenamento
+            IsGpuEnabled = true,
+            IsMemoryEnabled = true,
+            IsStorageEnabled = true
         };
         _computer.Open();
 
         _timer = new System.Windows.Forms.Timer
         {
-            Interval = 1000 // Atualizar a cada 1 segundo
+            Interval = 1000
         };
         _timer.Tick += Timer_Tick;
         _timer.Start();
     }
 
-    // Método com assinatura correspondente ao delegado EventHandler
     private void Timer_Tick(object? sender, EventArgs e)
     {
         UpdateHardwareInfo();
@@ -37,71 +40,163 @@ public partial class Form1 : Form
 
     private void UpdateHardwareInfo()
     {
-        string cpuTemperature = "Desconhecida";
-        string cpuUsage = "Desconhecido";
-        string motherboardInfo = "Desconhecida";
-        string processorInfo = "Desconhecido";
-        string storageInfo = "Desconhecido";
-        
-        bool storageFound = false;
         StringBuilder sb = new StringBuilder();
 
+        try
+        {
+            string motherboardInfo = GetMotherboardInfo();
+            string processorInfo = GetProcessorInfo();
+            string cpuTemperature = GetCpuTemperature();
+            string cpuUsage = GetCpuUsage();
+            string storageInfo = GetStorageInfo();
+
+            sb.AppendLine($"Placa Mãe: {motherboardInfo}");
+            sb.AppendLine($"Processador: {processorInfo}");
+            sb.AppendLine($"Temperatura da CPU: {cpuTemperature}");
+            sb.AppendLine($"Uso da CPU: {cpuUsage}");
+            sb.AppendLine($"Armazenamento:\n{storageInfo}");
+
+            textBoxInfo.Text = sb.ToString();
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine($"Erro ao atualizar informações de hardware: {ex.Message}");
+            textBoxInfo.Text = "Erro ao obter informações de hardware. Verifique o log para mais detalhes.";
+        }
+    }
+
+    private string GetMotherboardInfo()
+    {
+        foreach (var hardware in _computer.Hardware)
+        {
+            if (hardware.HardwareType == HardwareType.Motherboard)
+            {
+                return hardware.Name;
+            }
+        }
+        return "Desconhecida";
+    }
+
+    private string GetProcessorInfo()
+    {
         foreach (var hardware in _computer.Hardware)
         {
             if (hardware.HardwareType == HardwareType.Cpu)
             {
-                processorInfo = hardware.Name; // Nome do processador
+                return hardware.Name;
+            }
+        }
+        return "Desconhecido";
+    }
 
+    private string GetCpuTemperature()
+    {
+        foreach (var hardware in _computer.Hardware)
+        {
+            if (hardware.HardwareType == HardwareType.Cpu)
+            {
                 foreach (var sensor in hardware.Sensors)
                 {
                     if (sensor.SensorType == SensorType.Temperature)
                     {
-                        cpuTemperature = sensor.Value.HasValue ? $"{sensor.Value.Value} °C" : "Desconhecida";
-                    }
-                    else if (sensor.SensorType == SensorType.Load)
-                    {
-                        cpuUsage = sensor.Value.HasValue ? $"{sensor.Value.Value}%" : "Desconhecido";
-                    }
-                }
-            }
-            else if (hardware.HardwareType == HardwareType.Motherboard)
-            {
-                motherboardInfo = hardware.Name; // Nome da placa-mãe
-            }
-            else if (hardware.HardwareType == HardwareType.Storage)
-            {
-                storageFound = true;
-                sb.AppendLine("Armazenamento: " + hardware.Name);
-                foreach (var sensor in hardware.Sensors)
-                {
-                    if (sensor.SensorType == SensorType.Data)
-                    {
-                        string name = sensor.Name;
-                        if (name.Contains("Used"))
-                        {
-                            sb.AppendLine("Espaço Usado: " + FormatValue(sensor.Value) + " GB");
-                        }
-                        else if (name.Contains("Available"))
-                        {
-                            sb.AppendLine("Espaço Disponível: " + FormatValue(sensor.Value) + " GB");
-                        }
+                        return sensor.Value.HasValue ? $"{sensor.Value.Value:F1} °C" : "Desconhecida";
                     }
                 }
             }
         }
-
-        storageInfo = storageFound ? sb.ToString() : "Nenhum armazenamento encontrado.";
-
-        // Atualiza os labels com as informações corretas
-        label1.Text = $"Placa Mãe: {motherboardInfo}";
-        label2.Text = $"Processador: {processorInfo}";
-        label3.Text = $"Temperatura da CPU: {cpuTemperature}";
-        label4.Text = $"Uso da CPU: {cpuUsage}";
-        label5.Text = $"Armazenamento: {storageInfo}";
+        return "Desconhecida";
     }
 
-    private string FormatValue(double? value)
+    private string GetCpuUsage()
     {
-        return value.HasValue ? $"{value.Value:F2}" : "Desconhecido";
+        foreach (var hardware in _computer.Hardware)
+        {
+            if (hardware.HardwareType == HardwareType.Cpu)
+            {
+                foreach (var sensor in hardware.Sensors)
+                {
+                    if (sensor.SensorType == SensorType.Load)
+                    {
+                        return sensor.Value.HasValue ? $"{sensor.Value.Value:F1}%" : "Desconhecido";
+                    }
+                }
+            }
+        }
+        return "Desconhecido";
+    }
+
+private string GetStorageInfo()
+{
+    StringBuilder sb = new StringBuilder();
+    bool storageFound = false;
+
+    foreach (var hardware in _computer.Hardware)
+    {
+        if (hardware.HardwareType == HardwareType.Storage)
+        {
+            storageFound = true;
+            sb.AppendLine($"  - {hardware.Name}");
+
+            double? temperature = null;
+            hardware.Update();
+
+            foreach (var sensor in hardware.Sensors)
+            {
+                if (sensor.SensorType == SensorType.Temperature)
+                {
+                    temperature = sensor.Value;
+                    break;
+                }
+            }
+
+            sb.AppendLine($"    Temperatura: {(temperature.HasValue ? $"{temperature.Value:F1} °C" : "Desconhecida")}");
+
+            // Tenta obter informações de espaço usando WMI
+            try
+            {
+                ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_LogicalDisk WHERE DriveType=3");
+                foreach (ManagementObject disk in searcher.Get())
+                {
+                    string? driveLetter = disk["DeviceID"]?.ToString();
+                    long freeSpace = Convert.ToInt64(disk["FreeSpace"]);
+                    long totalSpace = Convert.ToInt64(disk["Size"]);
+                    long usedSpace = totalSpace - freeSpace;
+
+                    sb.AppendLine($"    Unidade: {driveLetter}");
+                    sb.AppendLine($"    Espaço Total: {FormatBytes(totalSpace)}");
+                    sb.AppendLine($"    Espaço Usado: {FormatBytes(usedSpace)}");
+                    sb.AppendLine($"    Espaço Disponível: {FormatBytes(freeSpace)}");
+                }
+            }
+            catch (Exception ex)
+            {
+                sb.AppendLine($"    Erro ao obter informações de espaço: {ex.Message}");
+            }
+
+            sb.AppendLine();
+        }
+    }
+
+    return storageFound ? sb.ToString() : "Nenhum dispositivo de armazenamento encontrado.";
+}
+
+private string FormatBytes(long bytes)
+{
+    string[] suffixes = { "B", "KB", "MB", "GB", "TB", "PB" };
+    int counter = 0;
+    decimal number = (decimal)bytes;
+    while (Math.Round(number / 1024) >= 1)
+    {
+        number = number / 1024;
+        counter++;
+    }
+    return string.Format("{0:n1} {1}", number, suffixes[counter]);
+}
+
+    protected override void OnFormClosing(FormClosingEventArgs e)
+    {
+        _timer.Stop();
+        _computer.Close();
+        base.OnFormClosing(e);
     }
 }
