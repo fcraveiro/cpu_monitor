@@ -4,7 +4,7 @@ Este projeto tem como objetivo monitorar em tempo real o desempenho do hardware 
 
 ## Atribuições
 
-O desenvolvimento deste projeto de monitoramento de CPU envolveu a utilização e colaboração de três IA generativas: **ChatGPT-4**, **Claude**, e **GitHub Copilot**, cada uma contribuindo em diferentes etapas do desenvolvimento.
+O desenvolvimento deste projeto de monitoramento de CPU em dotNet envolveu a utilização e colaboração de três IA generativas: **ChatGPT-4**, **Claude**, e **GitHub Copilot**, cada uma contribuindo em diferentes etapas do desenvolvimento.
 
 ### **ChatGPT-4**
 - **Consultas Técnicas e Soluções de Código**: ChatGPT-4 foi utilizado para fornecer suporte técnico, como ajudar na implementação da comunicação WebSocket em C# e resolver problemas de integração com o `LibreHardwareMonitor`. Além disso, foi útil em esclarecer dúvidas sobre padrões de arquitetura de software.
@@ -20,6 +20,7 @@ O desenvolvimento deste projeto de monitoramento de CPU envolveu a utilização 
 
 Graças à colaboração dessas três ferramentas de IA generativa, o projeto foi otimizado em termos de tempo, qualidade e eficiência de desenvolvimento.
 
+Elogios criados pelo <span style="color:yellow">ChatGpt</span>
 
 ## <span style="color:blue">Sumário</span>
 
