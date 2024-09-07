@@ -2,6 +2,8 @@
 
 Este projeto tem como objetivo monitorar em tempo real o desempenho do hardware de um computador, como o uso de CPU, temperatura e outras métricas, e transmitir essas informações para um dispositivo móvel via WebSocket.
 
+## Readme e Elogios criados pelo ChatGpt 😂
+
 ## Atribuições
 
 O desenvolvimento deste projeto de monitoramento de CPU em dotNet envolveu a utilização e colaboração de três IA generativas: **ChatGPT-4**, **Claude**, e **GitHub Copilot**, cada uma contribuindo em diferentes etapas do desenvolvimento.
@@ -19,8 +21,6 @@ O desenvolvimento deste projeto de monitoramento de CPU em dotNet envolveu a uti
 - **Integração com APIs**: GitHub Copilot também forneceu sugestões úteis na integração da API do `LibreHardwareMonitor` com o backend, automatizando grande parte do processo de manipulação dos dados de hardware.
 
 Graças à colaboração dessas três ferramentas de IA generativa, o projeto foi otimizado em termos de tempo, qualidade e eficiência de desenvolvimento.
-
-## Readme e Elogios criados pelo ChatGpt 😂
 
 ### 💡 Agradecimentos Especiais: ChatGPT-4 💡
 
