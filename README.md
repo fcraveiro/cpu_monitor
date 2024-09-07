@@ -9,7 +9,6 @@ Este projeto tem como objetivo monitorar em tempo real o desempenho do hardware 
 - [Versões Utilizadas](#versões-utilizadas)
 - [Infraestrutura](#infraestrutura)
 - [Como Contribuir](#como-contribuir)
-- [Instalação](#instalação)
 - [Licença](#licença)
 - [Informações Úteis](#informações-úteis)
 
@@ -42,11 +41,5 @@ O projeto utiliza `LibreHardwareMonitor` para capturar dados sobre o desempenho 
 
 Estamos abertos a contribuições da comunidade. Se você tiver sugestões, encontrar bugs ou quiser adicionar novas funcionalidades, sinta-se à vontade para abrir uma issue ou enviar um pull request.
 
-## Instalação
-
-Para executar este projeto localmente, siga os passos abaixo:
-
-1. Clone o repositório:
-
-   ```bash
-   git clone https://github.com/seu-usuario/seu-repositorio.git
+wsServer = new WebSocketServer("ws://localhost:4455");
+wsServer.Start();
