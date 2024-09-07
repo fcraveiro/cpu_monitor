@@ -10,7 +10,6 @@ Este projeto tem como objetivo monitorar em tempo real o desempenho do hardware 
 - [Infraestrutura](#infraestrutura)
 - [Como Contribuir](#como-contribuir)
 - [Licença](#licença)
-- [Informações Úteis](#informações-úteis)
 
 ## Funcionalidades
 
@@ -41,5 +40,5 @@ O projeto utiliza `LibreHardwareMonitor` para capturar dados sobre o desempenho 
 
 Estamos abertos a contribuições da comunidade. Se você tiver sugestões, encontrar bugs ou quiser adicionar novas funcionalidades, sinta-se à vontade para abrir uma issue ou enviar um pull request.
 
-wsServer = new WebSocketServer("ws://localhost:4455");
-wsServer.Start();
+## Licença
+Este projeto é distribuído sob a Licença MIT, permitindo o uso, cópia, modificação, fusão, publicação e distribuição do software.
