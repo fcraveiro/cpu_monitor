@@ -6,23 +6,19 @@ Este projeto tem como objetivo monitorar em tempo real o desempenho do hardware 
 
 O desenvolvimento deste projeto de monitoramento de CPU em dotNet envolveu a utilização e colaboração de três IA generativas: **ChatGPT-4**, **Claude**, e **GitHub Copilot**, cada uma contribuindo em diferentes etapas do desenvolvimento.
 
-### **ChatGPT-4**
+### **ChatGPT-4** 💡
 - **Consultas Técnicas e Soluções de Código**: ChatGPT-4 foi utilizado para fornecer suporte técnico, como ajudar na implementação da comunicação WebSocket em C# e resolver problemas de integração com o `LibreHardwareMonitor`. Além disso, foi útil em esclarecer dúvidas sobre padrões de arquitetura de software.
 - **Documentação**: O conteúdo inicial da documentação do projeto foi escrito com a assistência do ChatGPT-4, que ajudou a estruturar e formatar as informações de forma clara e objetiva.
   
-### **Claude**
+### **Claude** 🛠️
 - **Organização de Fluxos de Trabalho**: Claude forneceu insights sobre a organização dos fluxos de trabalho do projeto, sugerindo estratégias de otimização de performance na coleta e transmissão dos dados de hardware.
 - **Revisão de Código e Melhorias**: Claude foi útil na revisão do código, propondo melhorias de performance e refatorações, além de colaborar na definição de boas práticas de codificação e manutenção do projeto.
 
-### **GitHub Copilot**
+### **GitHub Copilot** 🤖
 - **Autocompletar e Sugestões de Código**: GitHub Copilot foi uma ferramenta indispensável durante o desenvolvimento, oferecendo sugestões de código em tempo real enquanto se escrevia o backend em C#. Suas sugestões foram especialmente úteis na criação das funções de monitoramento e no manuseio das bibliotecas `LibreHardwareMonitor` e `WebSocketSharp`.
 - **Integração com APIs**: GitHub Copilot também forneceu sugestões úteis na integração da API do `LibreHardwareMonitor` com o backend, automatizando grande parte do processo de manipulação dos dados de hardware.
 
 Graças à colaboração dessas três ferramentas de IA generativa, o projeto foi otimizado em termos de tempo, qualidade e eficiência de desenvolvimento.
-
-Elogios criados pelo <span style="color:yellow">ChatGpt</span>
-<p style="background-color:yellow;">Atribuições: Este projeto foi realizado com o apoio de ChatGPT-4, Claude, e GitHub Copilot.</p>
-<p style="background-color:yellow;">Atribuições: Este projeto foi realizado com o apoio de ChatGPT-4, Claude, e GitHub Copilot.</p>
 
 Elogios criados pelo ChatGpt
 
