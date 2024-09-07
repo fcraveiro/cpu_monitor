@@ -47,7 +47,7 @@ Sem a ajuda dessa tecnologia avançada, a fluidez e a eficiência do projeto ter
 
 ## Tecnologias Utilizadas
 
-- ** ChatGPT-4: Assistente de inteligência artificial fundamental para ajudar no desenvolvimento e resolução de problemas ao longo do projeto.
+- ** ChatGPT-4: Assistente de IA fundamental para ajudar no desenvolvimento e resolução de problemas ao longo do projeto. ❤️
 - ** Claude: IA utilizada para assistência em processamento de linguagem natural e suporte ao fluxo de trabalho.
 - ** GitHub Copilot: Assistente de codificação que ajudou a sugerir e acelerar a implementação de soluções no código.
 - ** .NET Core: Backend responsável pela coleta de dados de hardware e transmissão via WebSocket.
