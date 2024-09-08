@@ -79,7 +79,7 @@ We love contributions! If you've got ideas, found bugs, or want to add new featu
 
 This project is licensed under the MIT License, so feel free to use, copy, modify, merge, and share it as you like!
 
-<br><br><br><br>
+<br><br>
 
 ```bash
 
