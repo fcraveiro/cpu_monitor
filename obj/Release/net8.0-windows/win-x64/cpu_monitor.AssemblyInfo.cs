@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("cpu_monitor")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+91f88b500d371ad6bf2b0b5a64405fafa86dfa80")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d013ba06bdfe11a6acec43da37f8b6a5742cc87b")]
 [assembly: System.Reflection.AssemblyProductAttribute("cpu_monitor")]
 [assembly: System.Reflection.AssemblyTitleAttribute("cpu_monitor")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

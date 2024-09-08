@@ -23,13 +23,13 @@ public partial class Form1 : Form
             IsMotherboardEnabled = true,
             IsGpuEnabled = true,
             IsMemoryEnabled = true,
-            IsStorageEnabled = true
+            IsStorageEnabled = false
         };
         _computer.Open();
 
         _timer = new System.Windows.Forms.Timer
         {
-            Interval = 10
+            Interval = 1000
         };
         _timer.Tick += Timer_Tick;
         _timer.Start();
@@ -50,13 +50,13 @@ public partial class Form1 : Form
             string processorInfo = GetProcessorInfo();
             string cpuTemperature = GetCpuTemperature();
             string cpuUsage = GetCpuUsage();
-            string storageInfo = GetStorageInfo();
+            // string storageInfo = GetStorageInfo();
 
             sb.AppendLine($"Placa Mãe: {motherboardInfo}");
             sb.AppendLine($"Processador: {processorInfo}");
             sb.AppendLine($"Temperatura da CPU: {cpuTemperature}");
             sb.AppendLine($"Uso da CPU: {cpuUsage}");
-            sb.AppendLine($"Armazenamento:\n{storageInfo}");
+            // sb.AppendLine($"Armazenamento:\n{storageInfo}");
 
             textBoxInfo.Text = sb.ToString();
         }
@@ -109,23 +109,25 @@ public partial class Form1 : Form
         return "Desconhecida";
     }
 
-    private string GetCpuUsage()
+private string GetCpuUsage()
+{
+    foreach (var hardware in _computer.Hardware)
     {
-        foreach (var hardware in _computer.Hardware)
+        Console.WriteLine($"Hardware: {hardware.Name}, Type: {hardware.HardwareType}");
+        if (hardware.HardwareType == HardwareType.Cpu)
         {
-            if (hardware.HardwareType == HardwareType.Cpu)
+            foreach (var sensor in hardware.Sensors)
             {
-                foreach (var sensor in hardware.Sensors)
+                Console.WriteLine($"Sensor: {sensor.Name}, Type: {sensor.SensorType}, Value: {sensor.Value}");
+                if (sensor.SensorType == SensorType.Load)
                 {
-                    if (sensor.SensorType == SensorType.Load)
-                    {
-                        return sensor.Value.HasValue ? $"{sensor.Value.Value:F1}%" : "Desconhecido";
-                    }
+                    return sensor.Value.HasValue ? $"{sensor.Value.Value:F1}%" : "Desconhecido";
                 }
             }
         }
-        return "Desconhecido";
     }
+    return "Desconhecido";
+}
 
 private string GetStorageInfo()
 {
