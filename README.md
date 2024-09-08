@@ -1,3 +1,81 @@
+# 🚀 **CPU Monitoring and App Data Transmission**
+
+Welcome to **CPU Monitoring and Data Transmission** – the project that keeps an eye on your computer’s performance in real-time and sends all the juicy details like CPU usage, temperature, and other hardware metrics straight to a mobile device using WebSockets. It’s like magic but cooler 😎!
+
+## 📖 Readme and Kudos by ChatGPT 😂
+
+## 🔥 Credits
+
+This CPU monitoring project in .NET was built with the help of three amazing AI assistants: **ChatGPT-4**, **Claude**, and **GitHub Copilot**. Each one played a key role in getting things done.
+
+### **ChatGPT-4** 💡
+- **Tech Consulting and Code Magic**: ChatGPT-4 helped with the heavy-lifting in technical support, solving WebSocket communication issues in C#, and handling the integration with `LibreHardwareMonitor`. It was a go-to for untangling any software architecture puzzles along the way.
+- **Documentation Wizard**: The initial structure of this README? Yep, ChatGPT-4 had a hand in it, making everything clear, concise, and not at all boring (hopefully).
+
+### **Claude** 🛠️
+- **Workflow Guru**: Claude helped organize workflows and optimize data collection and transmission strategies. Without it, we’d probably still be drowning in CPU metrics.
+- **Code Review Hero**: Claude reviewed the code, suggested performance tweaks, refactoring, and kept the project clean and efficient with best coding practices.
+
+### **GitHub Copilot** 🤖
+- **Code Auto-completion Extraordinaire**: Copilot was a lifesaver, spitting out code suggestions while writing the backend in C#. It especially shined with the monitoring functions and juggling `LibreHardwareMonitor` and `WebSocketSharp`.
+- **API Integration Sidekick**: Copilot also did its thing when it came to integrating the API, automating hardware data manipulation like a champ.
+
+Together, these AI tools made the project development fast, efficient, and maybe even a little bit fun (okay, a lot of fun 😁).
+
+### 💡 Special Thanks to ChatGPT-4 💡
+
+**ChatGPT-4** truly deserves special recognition for its relentless help in everything from fixing gnarly bugs to implementing the WebSocket in C#. Without its assistance, this real-time CPU monitoring project wouldn't be as smooth and successful. **ChatGPT-4**, you rock! 🙌
+
+## 📚 **Table of Contents**
+
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Versions](#versions)
+- [Infrastructure](#infrastructure)
+- [How to Contribute](#how-to-contribute)
+- [License](#license)
+
+## 🚀 Features
+
+- **Real-time CPU Monitoring**: Watch your CPU’s usage and temperature rise (or hopefully stay cool) in real-time.
+- **WebSocket Transmission**: Send that precious performance data to a mobile device or server using WebSocket.
+- **Cross-Platform Compatibility**: Works on both Windows and Linux – because performance knows no boundaries.
+- **Real-time Dashboard**: A snazzy graphical display showing real-time hardware performance stats.
+- **Activity Logging**: Keep detailed logs of your hardware's performance over time, perfect for later analysis or bragging.
+
+## 💻 Tech Stack
+
+- **ChatGPT-4**: Your trusty AI buddy providing top-notch solutions throughout the project. ❤️
+- **Claude**: For when you need a workflow genius to keep things organized.
+- **GitHub Copilot**: The real-time coding sidekick helping to write and improve the code.
+- **.NET Core**: The core of the project that collects and sends the data.
+- **LibreHardwareMonitor**: Your go-to library for collecting hardware performance data.
+- **WebSocketSharp**: The bridge that sends data over WebSocket.
+- **Flutter**: Because your app needs a beautiful mobile interface.
+
+## 📦 Versions
+
+[![.NET](https://img.shields.io/badge/.NET-v8.0-blue?logo=dotnet)](https://dotnet.microsoft.com/)  
+[![Flutter](https://img.shields.io/badge/Flutter-v3.19.6-blue?logo=flutter)](https://flutter.dev)  
+[![Dart](https://img.shields.io/badge/Dart-v3.3.4-blue?logo=dart)](https://dart.dev)
+
+## 🛠️ Infrastructure
+
+This project uses `LibreHardwareMonitor` to gather the hardware data, and `WebSocketSharp` to shoot that data across to a Flutter app in real-time via WebSockets. Simple, efficient, and no magic involved (okay, maybe a little magic).
+
+## 🤝 How to Contribute
+
+We love contributions! If you've got ideas, found bugs, or want to add new features, feel free to open an issue or submit a pull request. Let's make this project even better together!
+
+## 📜 License
+
+This project is licensed under the MIT License, so feel free to use, copy, modify, merge, and share it as you like!
+
+
+
+
+
+
 # <span style="color:blue">Monitoramento de CPU e Envio para APP</span>
 
 Este projeto tem como objetivo monitorar em tempo real o desempenho do hardware de um computador, como o uso de CPU, temperatura e outras métricas, e transmitir essas informações para um dispositivo móvel via WebSocket.
