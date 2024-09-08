@@ -1,3 +1,11 @@
+
+   ```bash
+
+## This README was conjured up by the illustrious ChatGPT-4 in a hilariously ironic tone,
+## but rest assured, the information is spot-on! 😎✨
+
+   ```
+
 # 🚀 **CPU Monitoring and App Data Transmission**
 
 Welcome to **CPU Monitoring and Data Transmission** – the project that keeps an eye on your computer’s performance in real-time and sends all the juicy details like CPU usage, temperature, and other hardware metrics straight to a mobile device using WebSockets. It’s like magic but cooler 😎!
@@ -71,7 +79,15 @@ We love contributions! If you've got ideas, found bugs, or want to add new featu
 
 This project is licensed under the MIT License, so feel free to use, copy, modify, merge, and share it as you like!
 
-<br><br><br><br><br>
+<br><br><br><br>
+
+```bash
+
+Este README foi magicamente criado pelo grandioso ChatGPT-4 com um tom hilário e irônico,
+ mas fique tranquilo, as informações estão absolutamente corretas! 😎✨
+
+   ```
+<br>
 
 # <span style="color:blue">Monitoramento de CPU e Envio para APP</span>
 
