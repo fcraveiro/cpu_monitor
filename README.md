@@ -73,9 +73,6 @@ This project is licensed under the MIT License, so feel free to use, copy, modif
 
 
 
-
-
-
 # <span style="color:blue">Monitoramento de CPU e Envio para APP</span>
 
 Este projeto tem como objetivo monitorar em tempo real o desempenho do hardware de um computador, como o uso de CPU, temperatura e outras métricas, e transmitir essas informações para um dispositivo móvel via WebSocket.
